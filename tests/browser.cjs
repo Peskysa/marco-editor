@@ -25,6 +25,7 @@ try{
   await page.selectOption('#format','image/jpeg');await exported(page);await download(page,0,'foto.jpg');assert.equal((await sharp(path.join(output,'foto.jpg')).metadata()).format,'jpeg');
   await page.selectOption('#format','image/webp');await exported(page);await download(page,0,'foto.webp');assert.equal((await sharp(path.join(output,'foto.webp')).metadata()).format,'webp');report.photoFormats=3;
   await page.setInputFiles('#file',path.join(root,'tests/fixtures/clip.mp4'));await page.waitForFunction(()=>document.getElementById('kind').textContent==='VÍDEO');
+  assert.equal(await page.evaluate(()=>document.getElementById('preview').getContext('2d').getImageData(30,30,1,1).data[3]),255,'La vista previa debe contener un fotograma decodificado');report.initialVideoPreview=true;
   await page.click('#rotate-right');await numeric(page,'crop-w',50);await numeric(page,'crop-h',50);await numeric(page,'start',1);await numeric(page,'end',3);await exported(page);
   let meta=await metadata(page,0);assert.equal(meta.width,120);assert.equal(meta.height,160);assert.ok(Math.abs(meta.duration-2)<.12,JSON.stringify(meta));let movie=await download(page,0,'tramo-girado.mp4');checkMedia(movie);report.videoCropRotateAudio=true;
   await page.screenshot({path:path.join(shots,'funcion.png'),fullPage:true});

@@ -66,6 +66,8 @@ async function loadFile(next){
       w=probe.videoWidth;h=probe.videoHeight;len=probe.duration;probe.removeAttribute('src');probe.load();
       if(!Number.isFinite(len)||len<.1)throw new Error('No se puede leer la duración de este vídeo.');
       item=$('source-video');item.src=url;await new Promise((resolve,reject)=>{item.onloadeddata=resolve;item.onerror=()=>reject(new Error('No se puede abrir el vídeo.'));});
+      // Un vídeo oculto puede anunciar datos sin haber decodificado su primer fotograma.
+      await new Promise(resolve=>{item.addEventListener('seeked',resolve,{once:true});item.currentTime=Math.min(.001,len/2);});
     }else{
       item=new Image();item.src=url;await item.decode();w=item.naturalWidth;h=item.naturalHeight;
       if(/gif/i.test(next.type))message('El GIF se guardará como una imagen fija.');
