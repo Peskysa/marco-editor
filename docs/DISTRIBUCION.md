@@ -1,6 +1,6 @@
 # Distribución y verificaciones
 
-Repositorio y aplicación web públicos. Autor: Marco Pescador. Versión 1.0.0. Fuente original AGPL-3.0-only.
+Repositorio y descargas públicos. La web alojada mantiene acceso privado del propietario, pendiente de autorización para abrirla a todos. Autor: Marco Pescador. Versión 1.0.0. Fuente original AGPL-3.0-only. [Estado comprobado](ESTADO.md).
 
 La Release contiene estos nueve paquetes comunes y `SHA256SUMS.txt`:
 

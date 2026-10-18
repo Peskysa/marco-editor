@@ -6,6 +6,8 @@
 
 <p align="center"><a href="https://marco-editor.peskysa.chatgpt.site"><strong>Abrir aplicación web</strong></a> · <a href="https://github.com/Peskysa/marco-editor/releases/latest">Descargas</a> · <a href="docs/README.md">Documentación</a> · <a href="https://github.com/Peskysa/marco-editor/issues">Ayuda</a></p>
 
+**Acceso actual:** repositorio y descargas públicos. La web alojada está desplegada con acceso privado del propietario; abrirla a todos está pendiente de autorización específica. El ZIP web y las aplicaciones descargables son públicos. [Comprobaciones de la versión](docs/ESTADO.md).
+
 ## La aplicación
 
 Un editor sencillo de **Marco Pescador** para los pequeños cambios del día a día. Una sola ventana para fotos y vídeos, con vista previa, recorte libre o por proporciones, giro de 90°, reflejo horizontal y copia nueva. Sin cuentas, anuncios ni envío de los archivos a un servidor.
