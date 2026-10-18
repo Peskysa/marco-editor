@@ -1,0 +1,10 @@
+Marco Editor 1.0.0
+Copyright (C) 2026 Marco Pescador.
+Código, ilustración de ejemplo, icono y banner originales: AGPL-3.0-only.
+
+Este programa incluye ffmpeg.wasm, FFmpeg y componentes multimedia de terceros.
+Los componentes ajenos conservan sus autores y licencias. Consulta THIRD_PARTY.md
+y licenses/. No se reivindica su autoría ni se ofrece garantía.
+
+Código fuente y descargas públicas: https://github.com/Peskysa/marco-editor
+Fuentes del motor multimedia y sus instrucciones: licenses/ffmpeg-core/SOURCES.md

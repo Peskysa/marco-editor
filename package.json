@@ -1,0 +1,103 @@
+{
+  "name": "marco-editor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Recorta y gira fotos y vídeos, sin subir tus archivos.",
+  "author": "Marco Pescador",
+  "license": "AGPL-3.0-only",
+  "homepage": "https://marco-editor.peskysa.chatgpt.site",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "test": "node --test tests/core.test.cjs",
+    "build:web": "node scripts/build.cjs",
+    "start": "node scripts/serve.cjs",
+    "test:browser": "node tests/browser.cjs",
+    "build:desktop": "electron-builder --publish never",
+    "desktop": "electron ."
+  },
+  "dependencies": {
+    "@ffmpeg/ffmpeg": "0.12.15",
+    "@ffmpeg/core": "0.12.10",
+    "@capacitor/core": "8.5.3",
+    "@capacitor/android": "8.5.3",
+    "@capacitor/filesystem": "8.1.5",
+    "@capacitor/share": "8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3",
+    "electron": "44.7.0",
+    "electron-builder": "26.15.3",
+    "esbuild": "0.27.3",
+    "playwright": "1.64.1",
+    "sharp": "0.34.5"
+  },
+  "build": {
+    "appId": "io.github.peskysa.marcoeditor",
+    "productName": "Marco Editor",
+    "directories": {
+      "output": "dist/desktop",
+      "buildResources": "assets"
+    },
+    "files": [
+      "desktop/main.cjs",
+      "dist/web/**/*",
+      "assets/icon-512.png",
+      "LICENSE",
+      "NOTICE",
+      "THIRD_PARTY.md",
+      "licenses/**/*",
+      "docs/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon-512.png",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "artifactName": "Marco-Editor-Windows-Instalador.exe"
+    },
+    "portable": {
+      "artifactName": "Marco-Editor-Portable.exe"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "tar.gz",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon-512.png",
+      "category": "AudioVideo",
+      "maintainer": "Marco Pescador",
+      "synopsis": "Editor local de fotos y vídeos",
+      "artifactName": "Marco-Editor-Linux-Portable.${ext}"
+    },
+    "deb": {
+      "artifactName": "Marco-Editor-Linux-amd64.deb"
+    }
+  }
+}
